@@ -3,8 +3,8 @@ import SearchComponent from './components/SearchComponents';
 
 function App() {
   return (
-    <div className="App">
-    <h1>hola mundo</h1>
+    <div className="container-fluid">
+    <h2 className="text-center">React search</h2>
     <SearchComponent />
     </div>
   );

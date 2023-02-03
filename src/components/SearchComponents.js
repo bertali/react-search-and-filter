@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect} from 'react';
 
 const SearchComponent = () => {
     /*setear los hooks userStore*/
@@ -6,30 +6,47 @@ const SearchComponent = () => {
     const [ search, setSearch ] = useState([""])
  
     /* function para traer los datos de la API */
-    const UserURL = 'https://jsonplaceholder.typicode.com/users'
+    const URL = 'https://jsonplaceholder.typicode.com/users'
 
     const showData = async () => {
-        const response = await fetch(UserURL)
+        const response = await fetch(URL)
         const data = await response.json()
-        console.log(data)
         setUsers(data)
     }
     
-
-
-    /* metodo de filtros */
-
     /* funcion de busqueda */
+    const searcher = (e) => {
+    setSearch(e.target.value)
+    }
+
+    //metodo de filtrado 1
+   /*  let results = []
+    if(!search) 
+    {
+        results = users
+    }else{
+        results = users.filter((dato) => 
+        dato.name.toLowerCase().includes(search.toLocaleLoweCase())
+        )
+    } */
+
+    //metodo filtrado 2
+
+    const results = !search ? users 
+    : users.filter(
+        (dato)=> dato.name.toLowerCase().includes(search.toLocaleLowerCase()))
+        console.log(results)
 
     useEffect( ()=> {
-        showData([])
-    },)
+        showData()
+    }, [])
 
 
     /* renderizamos la vista del componente */ 
  
 return (
         <div>
+            <input vale={search} onChange={searcher} type="text" placeholder="Search" className="form-control"></input>
             <table className="table table-striped table-hover mt-5 shadow-lg">
                 <thead>
                     <tr className="bg-curso text-white">
@@ -38,7 +55,7 @@ return (
                     </tr>
                 </thead>
                 <tbody>
-                    { users.map ( (user) => (
+                    { results.map ( (user) => (
                         <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.username}</td>
