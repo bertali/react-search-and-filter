@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Context
+
+This is a small project to practice React with Hooks and API call.
+<img width="1440" alt="Captura de pantalla 2023-02-04 a las 14 24 58" src="https://user-images.githubusercontent.com/82206421/216770191-54e5b185-f35b-44e8-b57d-aae6c7eb0e3e.png">
+
+
 ## Available Scripts
 
 In the project directory, you can run:
